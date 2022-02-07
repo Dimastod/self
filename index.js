@@ -1,6 +1,6 @@
 /** 
  * ORIGINALY BY : github.com/LoL-Human
- * RECODE BY : LINDOW & MEGA & FAZONE
+ * RECODE BY : LINDOW & MEGA & FAZONE & DIMAS
  **/
 
 const { 
@@ -191,17 +191,17 @@ megayaa.on('chat-update', async(lin) => {
 	    	
         // Ucapan Waktu
         const hour_now = moment().format('HH')
-        var ucapanWaktu = 'Pagi lindow'
+        var ucapanWaktu = 'Pagi Bosss'
         if (hour_now >= '03' && hour_now <= '10') {
-          ucapanWaktu = 'Pagi lindow'
+          ucapanWaktu = 'Pagi Bosss'
         } else if (hour_now >= '10' && hour_now <= '14') {
-          ucapanWaktu = 'Siang lindow'
+          ucapanWaktu = 'Siang Bosss'
         } else if (hour_now >= '14' && hour_now <= '17') {
-          ucapanWaktu = 'Soree lindow'
+          ucapanWaktu = 'Soree Bosss'
         } else if (hour_now >= '17' && hour_now <= '18') {
-          ucapanWaktu = 'Selamat petang'
+          ucapanWaktu = 'Selamat Bosss'
         } else if (hour_now >= '18' && hour_now <= '23') {
-          ucapanWaktu = 'Malam lindow'
+          ucapanWaktu = 'Malam Bosss'
         } else {
           ucapanWaktu = 'Selamat Malam!'
         }
@@ -905,6 +905,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
 		    reply('sukses')
 	        break
             case 'takestick':
+	    case 'take':
 	        if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
 		const pembawm = body.slice(11)
 		if (!pembawm.includes('|')) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
