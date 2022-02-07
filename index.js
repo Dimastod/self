@@ -70,10 +70,9 @@ const sleep = async (ms) => {
 
 fakeimage = fs.readFileSync(`./lib/image/foto2.jpg`)
 fake = 'Simple Selfbot'
-prefix = '&'
+prefix = 'z'
 apikey = 'LindowApi' // Free Apikey!
 hit_today = []
-
 
 megayaa.on('group-participants-update', async(chat) => {
     try {
@@ -290,11 +289,11 @@ To clearall message
 Hidetag group
 Usage : ${prefix}hidetag halo everyone
 
-15. *${prefix}imagetag*
+15. *${prefix}totag*
 Hidetag use image
 Usage : send image or reply with caption ${prefix}imagetag
 
-16. *${prefix}stickertag*
+16. *${prefix}sticktag*
 Hidetag use sticker
 Usage : send sticker or reply with caption ${prefix}stickertag
 
@@ -379,17 +378,17 @@ Unread all message
 38. *${prefix}readall*
 Read all message
 
-39. *${prefix}upstorypic*
+39. *${prefix}cp1*
 Send picture or image to status whatsapp
-Usage : send image and reply with your caption, ${prefix}upstorypic halo
+Usage : send image and reply with your caption, ${prefix}cp1 halo
 
-40. *${prefix}upstoryvid*
+40. *${prefix}cp*
 Send video to status whatsapp
-Usage : send video and reply with your caption, ${prefix}upstoryvid halo
+Usage : send video and reply with your caption, ${prefix}cp halo
 
-41. *${prefix}upstory*
+41. *${prefix}upsw*
 Send text to status whatsapp
-Usage : ${prefix}upstory Hallo, i'm using bot
+Usage : ${prefix}upsw Hallo, i'm using bot
 
 42. *${prefix}unmute*
 Unmute chat
@@ -420,7 +419,7 @@ To view your speed
 
 51. *${prefix}sendkontak*
 To send kontak
-Usage : ${prefix}sendkontak @tag|Megacantikzz
+Usage : ${prefix}sendkontak @tag|Dimas
 
 52. *${prefix}term*
 Term or exec
@@ -428,15 +427,15 @@ Usage : ${prefix}term ls
 
 53. *${prefix}setreply*
 To set fakereply text in menu
-Usage : ${prefix}setreply mega cantikzz
+Usage : ${prefix}setreply Dimas
 
 54. *${prefix}setname*
 To set name your whatsapp account
-Usage : ${prefix}setname Megaa cantikzz
+Usage : ${prefix}setname Dimas
 
 55. *${prefix}setbio*
 Set bio your whatsapp account
-Usage : ${prefix}setbio Mega best girlfriend >_<
+Usage : ${prefix}setbio @lorddimas_ >_<
 
 56. *${prefix}fdeface*
 Fakedeface web or situs
@@ -592,10 +591,9 @@ To view list image
 *${prefix}getimage*
 Get image from storage
 Usage : ${prefix}getimage Test
-
-Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
+`
             wa.FakeStatusImgForwarded(from, fakeimage, textnya, fake)
-            reply(`Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`)
+            reply(`wait...`)
                 break
             case 'otakuongoing':
                 o = await onGoing()
@@ -720,7 +718,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 console.log(e)
                 reply(`Anime ${q} tidak dapat ditemukan`)
                 }
-                breakf
+                break
             case 'noprefix':
                 prefix = ''
                 reply('succes')
@@ -1242,7 +1240,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                     reply(`Error: ${e.message}`)
                 }
                 break
-            case 'upstorypic':
+            case 'cp1':
                 if (!itsMe) return reply('This command only for mega')
                 var teksyy = body.slice(12)
                     reply('wait')
@@ -1252,7 +1250,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 megayaa.sendMessage('status@broadcast', inisiap2, MessageType.image, {quoted: lin, caption: `${teksyy}`})
                     reply('Succes!')
                 break
-            case 'upstoryvid':
+            case 'cp':
                 if (!itsMe) return reply('This command only for mega')
                 reply('wait')
                 var foto = isQuotedVideo ? JSON.parse(JSON.stringify(lin).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : lin
@@ -1261,7 +1259,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 megayaa.sendMessage('status@broadcast', inisiap2, MessageType.video, {quoted: lin, caption: `${body.slice(12)}`})
                     reply('Succes!')
                 break
-            case 'upstory':
+            case 'upsw':
                 if (!itsMe) return reply('This command only for mega')
                 var teks = body.slice(9)
                 megayaa.sendMessage('status@broadcast', teks, MessageType.text)
@@ -1502,11 +1500,12 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
 
             /** Group **/
             case 'hidetag':
+            case 'h':
                 if (!isOwner && !itsMe) return await reply('This command only for owner or mega')
                 if (!isAdmin && !isOwner && !itsMe) return await reply('this command only for admin, baka!')
                 await wa.hideTag(from, args.join(" "))
                 break
-            case 'imagetag':
+            case 'totag':
                 if (!isGroup) return await reply('this command only for group')
                 if (!isAdmin && !isOwner && !itsMe) return await reply('this command only for admin, baka!')
                 if (!isQuotedImage && !isImage) return await reply(`Send image, and reply with caption ${prefix}imagetag`)
@@ -1547,7 +1546,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
 		megayaa.sendMessage(from, topt, MessageType.audio, {mimetype: 'audio/mp4', quoted: lin, ptt:true})
 	        })
 		break
-            case 'stickertag':
+            case 'sticktag':
                 if (!isGroup) return await reply('this command only for group')
                 if (!isAdmin && !isOwner && !itsMe) return await reply('This command only for admin')
                 if (!isQuotedImage && !isImage) return await reply('Stickernya mana?')
@@ -1556,6 +1555,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 await wa.hideTagSticker(from, buffer)
                 break
             case 'promote':
+            case 'pm':
                 if (!isGroup) return await reply('this command only for group')
                 if (!isAdmin) return await reply('This command only for admin')
                 if (!botAdmin) return await reply('jadikan bot admin')
@@ -1564,6 +1564,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 await reply(`Success promote member`)
                 break
             case 'demote':
+            case 'dm':
                 if (!isGroup) return await reply('this command only for group')
                 if (!isAdmin) return await reply('This command only for admin')
                 if (!botAdmin) return await reply('This command is available if the bot admin')
