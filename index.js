@@ -70,17 +70,10 @@ const sleep = async (ms) => {
 
 fakeimage = fs.readFileSync(`./lib/image/foto2.jpg`)
 fake = 'Simple Selfbot'
-prefix = 'z'
+prefix = '&'
 apikey = 'LindowApi' // Free Apikey!
 hit_today = []
 
-megayaa.on('CB:action,,call', async json => {
-    const callerId = json[2][0][1].from;
-    console.log("call dari "+ callerId)
-        megayaa.sendMessage(callerId, "Auto block system, don't call please", MessageType.text)
-        await sleep(4000)
-        await megayaa.blockUser(callerId, "add") // Block user
-})
 
 megayaa.on('group-participants-update', async(chat) => {
     try {
@@ -727,10 +720,7 @@ Join Group : https://chat.whatsapp.com/LeVT7RBq6WU1s92NIwdhfd`
                 console.log(e)
                 reply(`Anime ${q} tidak dapat ditemukan`)
                 }
-                break
-            case 'pinterest':
-                megayaa.sendMessage(from, {url: `http://sanz-api.herokuapp.com/api/search/pinterest?q=${args.join(" ")}&apikey=hayuk`, image, {thumbnail: Buffer.alloc(0)})
-                break
+                breakf
             case 'noprefix':
                 prefix = ''
                 reply('succes')
